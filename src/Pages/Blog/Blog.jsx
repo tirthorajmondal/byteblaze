@@ -24,10 +24,10 @@ const Blog = () => {
                     </div>
 
                     {/* tabs */}
-                    <div className="flex items-center  overflow-x-auto overflow-y-hidden  flex-nowrap  text-gray-800">
+                    <div className="flex items-center  overflow-x-auto overflow-y-hidden  flex-nowrap  ">
                         <Link to=""
                             onClick={() => setTabIndex(0)}
-                            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 0 ? 'border border-b-0 ' : 'border-b text-gray-600 '} rounded-t-lg border-gray-300 dark:text-gray-500`}>
+                            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 0 ? 'border border-b-0 ' : 'border-b text-gray-600 '} rounded-t-lg border-gray-300`}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
@@ -36,7 +36,7 @@ const Blog = () => {
                         </Link>
                         <Link to="author"
                             onClick={() => setTabIndex(1)}
-                            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 1 ? 'border border-b-0 text-gray-900 dark:text-gray-500' : 'border-b text-gray-600'} rounded-t-lg border-gray-300 text-gray-600`}>
+                            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 1 ? 'border border-b-0' : 'border-b text-gray-600'} rounded-t-lg border-gray-300 `}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                                 <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                             </svg>

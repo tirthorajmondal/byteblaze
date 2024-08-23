@@ -3,12 +3,20 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || "light");
 
     useEffect(() => {
+        // code I wrote
+
+        // localStorage.setItem('theme', theme);
+        // const localTheme = localStorage.getItem('theme');
+        // document.querySelector('html').setAttribute('data-theme', localTheme);
+
+
+        
+        // code from chatgpt
         localStorage.setItem('theme', theme);
-        const localTheme = localStorage.getItem('theme');
-        document.querySelector('html').setAttribute('data-theme', localTheme);
+        document.querySelector('html').setAttribute('data-theme', theme);
     }, [theme]);
 
 
