@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { MdBookmarkAdd } from "react-icons/md";
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
+import { saveBlogs } from "../../utilitis";
 
 const Blog = () => {
     const [tabIndex, setTabIndex] = useState(0);
+    const navigation = useNavigation()
     const blog = useLoaderData();
     const { id, title, cover_image, published_at, comments_count, public_reactions_count, reading_time_minutes, tag_list } = blog;
-
     // making tag_list to array from string
     const tags = tag_list.split(',');
 
+    const handleBookmark = blog =>{
+        saveBlogs(blog);
+    }
+
+    if (navigation.state === 'loading') return <Loader />
     return (
         <div className="max-w-3xl px-6 py-16 mx-auto space-y-12">
             <article className="space-y-8 ">
@@ -42,26 +49,23 @@ const Blog = () => {
                             </svg>
                             <span>Author</span>
                         </Link>
-                        <button className="flex justify-center items-center p-3 bg- ml-5 rounded-full text-secondary text-2xl bg-purple-200 hover:bg-purple-300"><MdBookmarkAdd /></button>
+                        <button onClick={() => handleBookmark(blog)} className="flex justify-center items-center p-3 bg- ml-5 rounded-full text-secondary text-2xl bg-purple-200 hover:bg-purple-300"><MdBookmarkAdd /></button>
                     </div>
                     <div className="">
                         <Outlet />
                     </div>
-
                 </div>
-                
             </article>
-            <div>
+            {/* <div>
 
-                {/* tags here */}
+                 tags here 
+
                 <div className="flex flex-wrap py-6 gap-2 border-t border-dashed border-gray-600">
                     {
                         tags.map(tag => <a key={tag} rel="noopener noreferrer" href="#" className="px-3 py-1 rounded-sm hover:underline bg-default-600">#{tag.trim()}</a>)
                     }
-
                 </div>
-               
-            </div>
+            </div> */}
         </div>
     );
 };

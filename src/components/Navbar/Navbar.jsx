@@ -13,7 +13,7 @@ const Navbar = () => {
         // document.querySelector('html').setAttribute('data-theme', localTheme);
 
 
-        
+
         // code from chatgpt
         localStorage.setItem('theme', theme);
         document.querySelector('html').setAttribute('data-theme', theme);
@@ -49,6 +49,7 @@ const Navbar = () => {
                         <label className="grid cursor-pointer place-items-center">
                             <input onChange={handleThemeToggle}
                                 type="checkbox"
+                                checked={theme === 'night'}
                                 value="night"
                                 className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1" />
                             <svg
