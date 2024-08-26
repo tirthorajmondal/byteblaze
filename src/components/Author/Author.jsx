@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router-dom";
 const Author = () => {
     const blog = useLoaderData();
     const { name, profile_image, username, github_username, website_url, twitter_username } = blog.user;
-    console.log(blog.user);
     return (
         <div className="flex flex-col justify-center max-w-xs mx-auto p-6 shadow-md rounded-xl sm:px-12">
             <img src={profile_image} alt="" className="w-32 h-32 mx-auto rounded-full bg-gray-500 aspect-square" />

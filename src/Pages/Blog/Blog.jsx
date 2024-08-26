@@ -2,18 +2,18 @@ import { useState } from "react";
 import { MdBookmarkAdd } from "react-icons/md";
 import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
-import { saveBlogs } from "../../utilitis";
+import { saveBlog } from "../../utilitis";
 
 const Blog = () => {
+    // const 
     const [tabIndex, setTabIndex] = useState(0);
     const navigation = useNavigation()
     const blog = useLoaderData();
-    const { id, title, cover_image, published_at, comments_count, public_reactions_count, reading_time_minutes, tag_list } = blog;
-    // making tag_list to array from string
-    const tags = tag_list.split(',');
+    const { id, title, cover_image, published_at, comments_count, public_reactions_count, reading_time_minutes, tags } = blog;
 
-    const handleBookmark = blog =>{
-        saveBlogs(blog);
+
+    const handleBookmark = blog => {
+        saveBlog(blog);
     }
 
     if (navigation.state === 'loading') return <Loader />
@@ -62,7 +62,7 @@ const Blog = () => {
 
                 <div className="flex flex-wrap py-6 gap-2 border-t border-dashed border-gray-600">
                     {
-                        tags.map(tag => <a key={tag} rel="noopener noreferrer" href="#" className="px-3 py-1 rounded-sm hover:underline bg-default-600">#{tag.trim()}</a>)
+                        tags.map(tag => <a key={tag} rel="noopener noreferrer" href="#" className="px-3 py-1 rounded-sm hover:underline bg-default-600">#{tag}</a>)
                     }
                 </div>
             </div> */}

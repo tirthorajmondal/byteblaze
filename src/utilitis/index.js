@@ -1,23 +1,23 @@
 import toast from "react-hot-toast";
 export const getBlogs = () => {
     let blogs = [];
-    const storedBlogs = localStorage.getItem("blogs");
-    if (storedBlogs) {
-        blogs = JSON.parse(storedBlogs);
+    const localBlogs = localStorage.getItem('blogs');
+    if (localBlogs) {
+        blogs = JSON.parse(localBlogs);
     }
     return blogs;
 }
 
 
-//save
-export const saveBlogs = (blog) => {
+// //save
+export const saveBlog = (blog) => {
     let blogs = getBlogs();
-    const isExist = blogs.find(b => console.log(b.id) )
+    const isExist = blogs.find(b => b.id === blog.id);
     if (isExist) {
         return toast.error('Already Bookmarked!')
     }
-    blogs.push(blog);
-    localStorage.setItem(blogs, JSON.stringify(blogs));
+    blogs.push(blog)
+    localStorage.setItem('blogs', JSON.stringify(blogs));
     toast.success('Blog Bookmarked Successfully!');
 }
 
@@ -29,3 +29,4 @@ export const deleteBlog = id => {
     localStorage.setItem('blogs', JSON.stringify(remaining))
     toast.success('Blog removed from Bookmark!')
 }
+
